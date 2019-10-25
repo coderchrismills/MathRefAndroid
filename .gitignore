@@ -3,3 +3,7 @@ bin/
 lint.xml
 *.iml
 project.properties
+.DS_Store
+.classpath
+.idea
+.project
