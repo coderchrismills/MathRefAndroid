@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2012 The Android Open Source Project
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.happymaau.MathRef"
+          android:versionCode="23"
+          android:versionName="2.5.9">
+
+    <uses-sdk android:minSdkVersion="22" android:targetSdkVersion="29" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <supports-screens
+            android:resizeable="true"
+            android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:xlargeScreens="true"
+            android:anyDensity="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light">
+        
+        <!--  Widget -->
+		<receiver
+       		android:icon="@drawable/icon"
+       		android:label="Unit Converter"
+       		android:name="UnitConverterWidget" >
+			<intent-filter >
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data
+				android:name="android.appwidget.provider"
+				android:resource="@xml/widget_info" />
+		</receiver> 
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light">
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:name=".UnitConverterWebWidget" 
+            android:label="Unit Converter"
+            android:theme="@android:style/Theme.Holo.Light">
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Tools -->
+         <activity android:name=".ToolsViewActivity" 
+             android:label="Tools"
+             android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.AlgebraLine2SolverActivity" 
+            android:label="Two Line Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.AlgebraQuadraticSolverActivity" 
+            android:label="Quadratic Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.AlgebraExponentialSolverActivity" 
+            android:label="Exponential Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.AlgebraComplexSolverActivity" 
+            android:label="Complex Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.GeometryTriangleSolverActivity" 
+            android:label="Triangle Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.GeometryCircleSolverActivity" 
+            android:label="Circle Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.TrigAngleDegreeConverterActivity" 
+            android:label="Angle Converter"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.TrigInverseAngleSolverActivity" 
+            android:label="Inverse Angle Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.TrigRefAngleSolverActivity" 
+            android:label="Reference Angle Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Tools.StatsZSolverActivity" 
+            android:label="Z Solver"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+        
+       <activity android:name=".Tools.UnitConverterDetailViewActivity" 
+           android:label="Unit Converter Detail View"
+           android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SECTION" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/equation_scroll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true">
+
+            <EditText
+                android:id="@+id/input_a"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/thinborder"
+                android:inputType="number|numberSigned|numberDecimal" 
+                android:hint="Value" android:textColor="@color/tools_text_color"/>
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1" android:focusable="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout1">
+            
+    	        <Button
+    	            android:id="@+id/button1"
+    	            android:layout_width="wrap_content"
+    	            android:layout_height="match_parent"
+    	            android:layout_marginTop="10dp"
+    	            android:layout_marginLeft="10dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+    	            android:text="Convert"/>
+
+        </LinearLayout>
+
+    	<TextView
+    	    android:id="@+id/results_textview"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="300dp"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_below="@+id/button_layout"
+    	    android:layout_marginLeft="26dp"
+    	    android:layout_marginRight="26dp"
+    	    android:layout_marginTop="15dp"
+    	    android:text=""
+            android:textColor="@color/tools_text_color"/>
+    </RelativeLayout>
+</ScrollView>

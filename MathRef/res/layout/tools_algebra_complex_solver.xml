@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/alg_complex_solver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:orientation="vertical"
+                    android:fillViewport="true"
+                    android:background="@color/white">
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/tools_rect_to_polar"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/tools_text_color" />
+        
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title1"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/z_textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/z_equals"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color" />
+
+            <EditText
+                android:id="@+id/input_a"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginTop="22dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:hint="@string/label_hint_a"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal"/>
+            
+            <TextView
+                android:id="@+id/plus_textview_1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color" />
+            
+            <EditText
+                android:id="@+id/input_b"
+                android:layout_width="55dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:hint="@string/label_hint_b"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal"/>
+
+            <TextView
+                android:id="@+id/i_textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/label_i"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color" />
+            
+            <Button
+                android:id="@+id/convert_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="@string/convert"/>
+            
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/results_textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/tools_text_color"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+        
+    	<TextView
+    	    android:id="@+id/title2"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="30dp"
+    	    android:layout_below="@+id/results_textview1"
+    	    android:layout_marginLeft="6dp"
+    	    android:layout_marginTop="15dp"
+    	    android:text="@string/tools_polar_to_rect"
+    	    android:textAppearance="?android:attr/textAppearanceMedium"
+    	    android:textColor="@color/tools_text_color" />
+        
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title2"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/z_textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/z_equals"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color"/>
+
+            <EditText
+                android:id="@+id/input_r"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginTop="22dp"
+                android:layout_weight="1"
+                android:background="@drawable/thinborder"
+                android:gravity= "center"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal"
+                android:hint="@string/label_r"/>
+            
+            <TextView
+                android:id="@+id/plus_textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color"/>
+            
+            <EditText
+                android:id="@+id/input_t"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginTop="22dp"
+                android:hint="@string/label_theta"
+                android:layout_weight="1"
+                android:background="@drawable/thinborder"
+                android:gravity= "center"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" />
+
+            <TextView
+                android:id="@+id/i_textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/label_i"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <Button
+                android:id="@+id/convert_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="@string/convert"/>
+            
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/instructions_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/theta_bounds_180"
+            android:textColor="@color/tools_text_color" />
+        
+        <TextView
+                android:id="@+id/results_textview2"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/instructions_textview"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="15dp"
+                android:text="" android:textColor="@color/tools_text_color"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+</RelativeLayout>

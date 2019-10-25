@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="MathRef">
+    <output-path>$PROJECT_DIR$/out/artifacts/MathRef</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="includeSystemProGuardCfgFile" value="true" />
+        <option name="keyAlias" value="mathref" />
+        <option name="keyPassword" value="R2FtZWNhdCEx" />
+        <option name="keyStorePassword" value="R2FtZWNhdCEx" />
+        <option name="keyStoreUrl" value="file://$PROJECT_DIR$/../keystores/mathref.keystore" />
+        <option name="proGuardCfgFileUrl" value="file://" />
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="MathRef.apk">
+      <element id="android-final-package" facet="MathRef/android/Android" />
+    </root>
+  </artifact>
+</component>

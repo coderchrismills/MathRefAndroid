@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/ScrollView01" 
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_y="-20dp"
+                xmlns:android="http://schemas.android.com/apk/res/android">
+                
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_root"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              >
+    	
+	    <TextView android:id="@+id/element_name"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	    
+	    <TextView android:id="@+id/element_number"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	              
+		 <TextView android:id="@+id/element_symbol"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	              
+		<TextView android:id="@+id/element_weight"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	
+		<TextView android:id="@+id/element_shell"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10px"
+                      android:paddingLeft="10px"
+                      android:paddingRight="10px"
+	              android:textColor="#FFF"
+	              />
+	              
+		<TextView android:id="@+id/element_melting"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	              
+		<TextView android:id="@+id/element_boiling"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:textColor="#FFF"
+	              />
+	              
+		<TextView android:id="@+id/element_density"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:paddingBottom="10px"
+                      android:paddingLeft="10px"
+                      android:paddingRight="10px"
+	              android:textColor="#FFF"
+	              />  
+	              
+	    <Button android:id="@+id/close_button"
+	              android:layout_width="fill_parent"
+	              android:layout_height="wrap_content"
+	              android:textColor="#FFF"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+	              android:text="Close"
+	              />        
+</LinearLayout>
+</ScrollView>

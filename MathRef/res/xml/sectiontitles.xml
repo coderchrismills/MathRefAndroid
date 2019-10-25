@@ -1,0 +1,23 @@
+<SectionTitles> 
+	<section value="Algebra" />
+	<section value="Geometry" />
+	<section value="Trigonometry" /> 
+	<section value="Linear Algebra" /> 
+	<section value="Series &amp; Sequences" /> 
+   	<section value="Differentiation" /> 
+	<section value="Integration" /> 
+	<section value="Table of Integrals" /> 
+	<section value="Vector Calculus" /> 
+	<section value="Differential Equations" /> 
+	<section value="Discrete" /> 
+	<section value="Probability &amp; Statistics" /> 
+	<section value="Physics" /> 
+	<section value="Chemistry" /> 
+	<section value="Algorithms" /> 
+	<section value="Financial" /> 
+	<section value="Greek Alphabet" />
+	<section value="Prime Numbers" />  
+	<section value="Tools" /> 
+	<section value="Search" /> 
+	<section value="About" />              
+</SectionTitles>

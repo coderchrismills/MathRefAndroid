@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/converter_content"
+      style="@android:style/Widget"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:gravity="top" >
+
+      <ImageButton
+          android:id="@+id/widgetButton"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:paddingRight="8dip"
+          android:paddingBottom="8dip"
+          android:paddingLeft="8dip"
+          android:layout_marginRight="4dip"
+          android:layout_marginBottom="4dip"
+          android:layout_marginLeft="4dip"
+          android:scaleType="fitCenter"
+          android:adjustViewBounds="true"
+          android:background="@null"
+          android:layout_centerHorizontal="true"
+          android:src="@drawable/widget_icon" />
+		
+  </RelativeLayout>

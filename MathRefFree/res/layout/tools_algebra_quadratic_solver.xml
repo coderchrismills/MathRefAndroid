@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/equation_scroll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" >
+            
+            <EditText
+                android:id="@+id/input_a"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" android:hint="A"/>
+            
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="x2 +"
+                android:textColor="@color/tools_text_color"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <EditText
+                android:id="@+id/input_b"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginTop="22dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" android:hint="B"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:text="x +"
+                android:textColor="@color/tools_text_color"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <EditText
+                android:id="@+id/input_c"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" android:hint="C"/>
+            
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="22dp"
+                android:text="= 0"
+                android:textColor="@color/tools_text_color"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+        </LinearLayout>
+
+    	<Button
+    	    android:id="@+id/button1"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_below="@+id/linearLayout1"
+    	    android:layout_marginTop="17dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+    	    android:text="Calculate"/>
+
+    	<TextView
+    	    android:id="@+id/results_textview"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="250dp"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_below="@+id/button1"
+    	    android:layout_marginLeft="26dp"
+    	    android:layout_marginRight="26dp"
+    	    android:layout_marginTop="15dp"
+            android:textColor="@color/tools_text_color"
+    	    android:text=""/>
+            
+    </RelativeLayout>
+</ScrollView>

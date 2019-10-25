@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/equation_scroll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="2dp">
+
+	<RelativeLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="fill_parent" >
+
+	    <LinearLayout
+	        android:id="@+id/linearLayout1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentTop="true" android:gravity="center">
+	        
+	        <RelativeLayout
+	        android:id="@+id/arcsin_button_layout"
+	        android:layout_width="70dp"
+	        android:layout_marginLeft="50dp"
+	        android:layout_marginRight="5dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true" >
+	        
+		        <RadioButton
+		            android:id="@+id/arcsin_radioButton"
+		            android:layout_width="40dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentTop="true"
+		            android:layout_centerHorizontal="true"
+		            android:text="" android:checked="true"/>
+		        
+		        <TextView
+		            android:id="@+id/arcsin_textView"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_below="@+id/arcsin_radioButton"
+		            android:textAppearance="?android:attr/textAppearanceMedium"
+		            android:gravity="center"
+		            android:text="arcsin"
+                    android:textColor="@color/tools_text_color"/>
+		        
+			</RelativeLayout>
+	        
+			<RelativeLayout
+				android:id="@+id/arccos_button_layout"
+				android:layout_width="70dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="5dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true" >
+	        
+		        <RadioButton
+		            android:id="@+id/arccos_radioButton"
+		            android:layout_width="40dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentTop="true"
+		            android:layout_centerHorizontal="true"
+		            android:text=""/>
+		        
+		        <TextView
+		            android:id="@+id/arccos_textView"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_below="@+id/arccos_radioButton"
+		            android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/tools_text_color"
+		            android:gravity="center"
+		            android:text="arccos"/>
+		        
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:id="@+id/arctan_button_layout"
+				android:layout_width="70dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="20dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true" >
+	        
+		        <RadioButton
+		            android:id="@+id/arctan_radioButton"
+		            android:layout_width="40dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentTop="true"
+		            android:layout_centerHorizontal="true"
+		            android:text=""/>
+		        
+		        <TextView
+		            android:id="@+id/arctan_textView"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_below="@+id/arctan_radioButton"
+		            android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/tools_text_color"
+		            android:gravity="center"
+		            android:text="arctan"/>
+		        
+			</RelativeLayout>
+			
+		</LinearLayout>
+	        
+	    <LinearLayout
+	        android:id="@+id/input_a_layout"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/linearLayout1"
+	        android:layout_marginRight="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_alignParentLeft="true" >
+
+	        <TextView
+	            android:id="@+id/input_a_name_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginTop="10dp"
+	            android:text="arcsin("
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color"/>
+	   
+	        <EditText
+	            android:id="@+id/input_a"
+	            android:layout_width="70dp"
+	            android:layout_height="40dp"
+	            android:layout_marginTop="10dp"
+	            android:layout_weight="1"
+	            android:gravity= "center"
+	            android:background="@drawable/thinborder"
+	            android:textColor="@color/tools_text_color"
+	            android:inputType="number|numberSigned|numberDecimal"/>
+
+	        <TextView
+	            android:id="@+id/end_parens_textview"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+	            android:layout_marginRight="10dp"
+	            android:layout_marginTop="10dp"
+	            android:text=")"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color"/>
+
+	        <Button
+	            android:id="@+id/computeButton"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_marginTop="10dp"
+	            android:layout_marginRight="10dp"
+	            android:layout_alignParentRight="true"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+	            android:text="Calculate"/>
+	    
+	    </LinearLayout>
+
+	    <TextView
+	        android:id="@+id/results_degrees_title"
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginRight="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="10dp"
+	        android:text="Degrees"
+	        android:layout_below="@+id/input_a_layout"
+	        android:textColor="@color/tools_text_color"/>
+
+	    <TextView
+		    android:id="@+id/results_degrees_textview"
+		    android:layout_width="fill_parent"
+		    android:layout_height="125dp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_below="@+id/results_degrees_title"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:layout_marginTop="5dp"
+		    android:text=""
+            android:textColor="@color/tools_text_color"/>
+
+		<TextView
+	        android:id="@+id/results_radians_title"
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginRight="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_below="@+id/results_degrees_textview"
+	        android:text="Radians"
+	        android:textColor="@color/tools_text_color"/>
+
+	    <TextView
+		    android:id="@+id/results_radians_textview"
+		    android:layout_width="fill_parent"
+		    android:layout_height="125dp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_below="@+id/results_radians_title"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:layout_marginTop="5dp"
+		    android:text=""
+            android:textColor="@color/tools_text_color"/>
+
+	</RelativeLayout>
+</ScrollView>

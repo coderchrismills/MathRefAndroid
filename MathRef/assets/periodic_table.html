@@ -1,0 +1,564 @@
+<html>
+  <head>
+    <style type="text/css">
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+        -webkit-text-size-adjust:none;
+      }
+
+      html
+      {
+        font-size: 1em;
+        min-height: 100%;
+        height: 100%;
+      }
+
+      body {
+        font-family: Helvetica, Arial, "Lucida Grande", sans-serif; 
+        font-size: 100%;
+        min-width: 768px;
+      }
+
+      html, body, h1, h2, h3, h4, h5, h6 {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #periodic_table {
+        margin: 0 auto;
+        clear: both;
+        width: 100%;
+      }
+
+      #periodic_table th, #periodic_table td {
+        overflow: hidden;
+        width: 44px;
+        height: 44px;
+      }
+
+      
+      #legend_table {
+        margin: 0 auto;
+        clear: both;
+        width: 100%;
+      }
+
+      #legend_table th, #legend_table td {
+        overflow: hidden;
+        width: 44px;
+        height: 44px;
+      }
+
+      .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      
+      #main_content {
+        margin: 0 auto;
+        margin-top: -80px;
+      }
+
+      .element {
+        float: left;
+        white-space: nowrap;
+        vertical-align: top;
+        cursor: pointer;
+      }
+      
+      .left_col {
+        float:left;
+        width: 100%;
+      }
+
+      .acronym {
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .number {
+        font-size: 0.8em;
+      }
+
+      .full_name {
+        font-size: 0.75em;
+      }
+      .weight {
+        font-style: italic;
+        font-size: 0.75em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .right_col {
+        float:right;
+        text-align: right;
+        width:20%;
+        display: none;
+      }
+      
+      .shell {
+        font-size: 0.67em;
+      }
+      .shell ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .metaloids {
+        background-color: #78c2ae;
+      }
+
+      .nonmetal {
+        background-color: #6cc47a;
+      }
+
+      .halogen {
+        background-color: #f0dfb3;
+      }
+
+      .nobel_gas {
+        background-color: #d5a09d;
+      }
+
+      .alkali_metal {
+        background-color: #d8b3a0;
+      }
+
+      .alkali_earth {
+        background-color: #ccccd9;
+      }
+
+      .lanthanoid {
+        background-color: #acd69f;
+      }
+
+      .actinoid {
+        background-color: #c9b1c9;
+      }
+
+      .trans_metal {
+        background-color: #b9e8e8;
+      }
+
+      .post_trans_metal {
+        background-color: #a5a5eb;
+      }
+
+      #info_box {
+        width: 35%;
+        max-width: 275px;
+        min-width: 240px;
+        height: 100px;
+        font-size: 1.20em;
+        overflow: visible;
+        position: relative;
+        left: 17%;
+        top: 120px;
+      }
+
+      #info_left {
+        width:50%;
+        float:left;
+        padding-left: 5px;
+      }
+
+      #info_symbol {
+        font-weight: bold;
+      }
+
+      #info_center {
+        width: 10%;
+        float:left;
+        text-align: right;
+        font-size: 0.6em;
+        line-height: 1.2;
+      }
+      
+      #info_center ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #info_right {
+        font-size: 0.65em;
+        width:40%;
+        float:right;
+        text-align: center;
+      }
+
+      .shadow_down {
+        -moz-box-shadow:    0px 2px 3px 0px #333;
+        -webkit-box-shadow: 0px 2px 3px 0px #333;
+        box-shadow:         0px 2px 3px 0px #333;
+      }
+
+      #lanthanoid_label {
+        top: 400px;
+        left: 2px;
+      }
+
+      #actinoids_label {
+        top: 450px;
+        left: 2px;
+      }
+
+      .extra_label {
+        overflow: visible   !important;
+        position: absolute  !important;
+        font-size: 0.9em    !important;
+        line-height: 1      !important;
+        width: 64px         !important;
+      }
+
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+      var obj = $.parseJSON('{"periodicTable":[{"ElementNumber":"1","AtomicWeight":"1.00794","Symbol":"H","Name":"Hydrogen","Shell":["1"],"MeltingPoint":"14.01 K","BoilingPoint":"20.28 K","Density":"0.0899 kg/m^3"},{"ElementNumber":"2","AtomicWeight":"4.002602","Symbol":"He","Name":"Helium","Shell":["2"],"MeltingPoint":"0.95 K","BoilingPoint":"4.22 K","Density":"0.1785 kg/m^3"},{"ElementNumber":"3","AtomicWeight":"6.941","Symbol":"Li","Name":"Lithium","Shell":["2","1"],"MeltingPoint":"453.69 K","BoilingPoint":"1615 K","Density":"535 kg/m^3"},{"ElementNumber":"4","AtomicWeight":"9.012182","Symbol":"Be","Name":"Beryllium","Shell":["2","2"],"MeltingPoint":"1560 K","BoilingPoint":"2743 K","Density":"1848 kg/m^3"},{"ElementNumber":"5","AtomicWeight":"10.811","Symbol":"B","Name":"Boron","Shell":["2","3"],"MeltingPoint":"2348 K","BoilingPoint":"4273 K","Density":"2460 kg/m^3"},{"ElementNumber":"6","AtomicWeight":"12.0107","Symbol":"C","Name":"Carbon","Shell":["2","4"],"MeltingPoint":"3823 K","BoilingPoint":"4300 K","Density":"2260 kg/m^3"},{"ElementNumber":"7","AtomicWeight":"14.0067","Symbol":"N","Name":"Nitrogen","Shell":["2","5"],"MeltingPoint":"63.05 K","BoilingPoint":"77.36 K","Density":"1.251 kg/m^3"},{"ElementNumber":"8","AtomicWeight":"15.9994","Symbol":"O","Name":"Oxygen","Shell":["2","6"],"MeltingPoint":"54.8 K","BoilingPoint":"90.2 K","Density":"1.429 kg/m^3"},{"ElementNumber":"9","AtomicWeight":"18.9984032","Symbol":"F","Name":"Fluorine","Shell":["2","7"],"MeltingPoint":"53.5 K","BoilingPoint":"85.03 K","Density":"1.696 kg/m^3"},{"ElementNumber":"10","AtomicWeight":"20.1797","Symbol":"Ne","Name":"Neon","Shell":["2","8"],"MeltingPoint":"24.56 K","BoilingPoint":"27.07 K","Density":"0.9 kg/m^3"},{"ElementNumber":"11","AtomicWeight":"22.98976","Symbol":"Na","Name":"Sodium","Shell":["2","8","1"],"MeltingPoint":"370.87 K","BoilingPoint":"1156 K","Density":"968 kg/m^3"},{"ElementNumber":"12","AtomicWeight":"24.3050","Symbol":"Mg","Name":"Magnesium","Shell":["2","8","2"],"MeltingPoint":"923 K","BoilingPoint":"1363 K","Density":"1738 kg/m^3"},{"ElementNumber":"13","AtomicWeight":"26.9815386","Symbol":"Al","Name":"Aluminium","Shell":["2","8","3"],"MeltingPoint":"933.47 K","BoilingPoint":"2792 K","Density":"2700 kg/m^3"},{"ElementNumber":"14","AtomicWeight":"28.0855","Symbol":"Si","Name":"Silicon","Shell":["2","8","4"],"MeltingPoint":"1687 K","BoilingPoint":"3173 K","Density":"2330 kg/m^3"},{"ElementNumber":"15","AtomicWeight":"30.973762","Symbol":"P","Name":"Phosphorus","Shell":["2","8","5"],"MeltingPoint":"317.3 K","BoilingPoint":"553.6 K","Density":"1823 kg/m^3"},{"ElementNumber":"16","AtomicWeight":"32.065","Symbol":"S","Name":"Sulfur","Shell":["2","8","6"],"MeltingPoint":"388.36 K","BoilingPoint":"717.87 K","Density":"1960 kg/m^3"},{"ElementNumber":"17","AtomicWeight":"35.453","Symbol":"Cl","Name":"Chlorine","Shell":["2","8","7"],"MeltingPoint":"171.6 K","BoilingPoint":"239.11 K","Density":"3.214 kg/m^3"},{"ElementNumber":"18","AtomicWeight":"39.948","Symbol":"Ar","Name":"Argon","Shell":["2","8","8"],"MeltingPoint":"83.8 K","BoilingPoint":"87.3 K","Density":"1.784 kg/m^3"},{"ElementNumber":"19","AtomicWeight":"39.0983","Symbol":"K","Name":"Potassium","Shell":["2","8","8","1"],"MeltingPoint":"336.53 K","BoilingPoint":"1032 K","Density":"856 kg/m^3"},{"ElementNumber":"20","AtomicWeight":"40.078","Symbol":"Ca","Name":"Calcium","Shell":["2","8","8","2"],"MeltingPoint":"1115 K","BoilingPoint":"1757 K","Density":"1550 kg/m^3"},{"ElementNumber":"21","AtomicWeight":"44.955912","Symbol":"Sc","Name":"Scandium","Shell":["2","8","9","2"],"MeltingPoint":"1814 K","BoilingPoint":"3103 K","Density":"2985 kg/m^3"},{"ElementNumber":"22","AtomicWeight":"47.867","Symbol":"Ti","Name":"Titanium","Shell":["2","8","10","2"],"MeltingPoint":"1941 K","BoilingPoint":"3560 K","Density":"4507 kg"},{"ElementNumber":"23","AtomicWeight":"50.9415","Symbol":"V","Name":"Vanadium","Shell":["2","8","11","2"],"MeltingPoint":"2183 K","BoilingPoint":"3680 K","Density":"6110 kg/m^3"},{"ElementNumber":"24","AtomicWeight":"51.9961","Symbol":"Cr","Name":"Chromium","Shell":["2","8","13","1"],"MeltingPoint":"2180 K","BoilingPoint":"2944 K","Density":"7140 kg/m^3"},{"ElementNumber":"25","AtomicWeight":"54.938045","Symbol":"Mn","Name":"Manganese","Shell":["2","8","13","2"],"MeltingPoint":"1519 K","BoilingPoint":"2334 K","Density":"7470 kg/m^3"},{"ElementNumber":"26","AtomicWeight":"55.845","Symbol":"Fe","Name":"Iron","Shell":["2","8","14","2"],"MeltingPoint":"1811 K","BoilingPoint":"3134 K","Density":"7874 kg/m^3"},{"ElementNumber":"27","AtomicWeight":"58.933195","Symbol":"Co","Name":"Cobalt","Shell":["2","8","15","2"],"MeltingPoint":"1768 K","BoilingPoint":"3200 K","Density":"8900 kg/m^3"},{"ElementNumber":"28","AtomicWeight":"58.6934","Symbol":"Ni","Name":"Nickel","Shell":["2","8","16","2"],"MeltingPoint":"1728 K","BoilingPoint":"3186 K","Density":"8908 kg/m^3"},{"ElementNumber":"29","AtomicWeight":"63.546","Symbol":"Cu","Name":"Copper","Shell":["2","8","18","1"],"MeltingPoint":"1728 K","BoilingPoint":"3186 K","Density":"8908 kg/m^3"},{"ElementNumber":"30","AtomicWeight":"63.38","Symbol":"Zn","Name":"Zinc","Shell":["2","8","18","2"],"MeltingPoint":"692.68 K","BoilingPoint":"1180 K","Density":"7140 kg/m^3"},{"ElementNumber":"31","AtomicWeight":"69.723","Symbol":"Ga","Name":"Gallium","Shell":["2","8","18","3"],"MeltingPoint":"302.91 K","BoilingPoint":"2477 K","Density":"5904 kg/m^3"},{"ElementNumber":"32","AtomicWeight":"72.64","Symbol":"Ge","Name":"Germanium","Shell":["2","8","18","4"],"MeltingPoint":"1211.4 K","BoilingPoint":"3093 K","Density":"5323 kg/m^3"},{"ElementNumber":"33","AtomicWeight":"74.92160","Symbol":"As","Name":"Arsenic","Shell":["2","8","18","5"],"MeltingPoint":"1090 K","BoilingPoint":"887 K","Density":"5727 kg/m^3"},{"ElementNumber":"34","AtomicWeight":"78.96","Symbol":"Se","Name":"Selenium","Shell":["2","8","18","6"],"MeltingPoint":"494 K","BoilingPoint":"958 K","Density":"4819 kg/m^3"},{"ElementNumber":"35","AtomicWeight":"79.904","Symbol":"Br","Name":"Bromine","Shell":["2","8","18","7"],"MeltingPoint":"265.8 K","BoilingPoint":"332 K","Density":"3120 kg/m^3"},{"ElementNumber":"36","AtomicWeight":"83.798","Symbol":"Kr","Name":"Krypton","Shell":["2","8","18","8"],"MeltingPoint":"115.79 K","BoilingPoint":"119.93 K","Density":"3.75 kg/m^3"},{"ElementNumber":"37","AtomicWeight":"85.4678","Symbol":"Rb","Name":"Rubidium","Shell":["2","8","18","8","1"],"MeltingPoint":"312.46 K","BoilingPoint":"1961 K","Density":"1532 kg/m^3"},{"ElementNumber":"38","AtomicWeight":"87.62","Symbol":"Sr","Name":"Strontium","Shell":["2","8","18","8","2"],"MeltingPoint":"1050 K","BoilingPoint":"1655 K","Density":"2630 kg/m^3"},{"ElementNumber":"39","AtomicWeight":"88.90585","Symbol":"Y","Name":"Yttrium","Shell":["2","8","18","9","2"],"MeltingPoint":"1799 K","BoilingPoint":"3618 K","Density":"4472 kg/m^3"},{"ElementNumber":"40","AtomicWeight":"91.224","Symbol":"Zr","Name":"Zirconium","Shell":["2","8","18","10","2"],"MeltingPoint":"2128 K","BoilingPoint":"4682 K","Density":"6511 kg/m^3"},{"ElementNumber":"41","AtomicWeight":"92.90638","Symbol":"Nb","Name":"Niobium","Shell":["2","8","18","12","1"],"MeltingPoint":"2750 K","BoilingPoint":"5017 K","Density":"8570 kg/m^3"},{"ElementNumber":"42","AtomicWeight":"95.96","Symbol":"Mo","Name":"Molybdenum","Shell":["2","8","18","13","1"],"MeltingPoint":"2896 K","BoilingPoint":"4912 K","Density":"10280 kg/m^3"},{"ElementNumber":"43","AtomicWeight":"98","Symbol":"Tc","Name":"Technetium","Shell":["2","8","18","13","2"],"MeltingPoint":"2430 K","BoilingPoint":"4538 K","Density":"11500 kg/m^3"},{"ElementNumber":"44","AtomicWeight":"101.07","Symbol":"Ru","Name":"Ruthenium","Shell":["2","8","18","15","1"],"MeltingPoint":"2607 K","BoilingPoint":"4423 K","Density":"12370 kg/m^3"},{"ElementNumber":"45","AtomicWeight":"102.90550","Symbol":"Rh","Name":"Rhodium","Shell":["2","8","18","16","1"],"MeltingPoint":"2237 K","BoilingPoint":"3968 K","Density":"12450 kg/m^3"},{"ElementNumber":"46","AtomicWeight":"106.42","Symbol":"Pd","Name":"Palladium","Shell":["2","8","18","18"],"MeltingPoint":"1828.05 K","BoilingPoint":"3236 K","Density":"12023 kg/m^3"},{"ElementNumber":"47","AtomicWeight":"107.8682","Symbol":"Ag","Name":"Silver","Shell":["2","8","18","18","1"],"MeltingPoint":"1234.93 K","BoilingPoint":"2435 K","Density":"10490 kg/m^3"},{"ElementNumber":"48","AtomicWeight":"112.411","Symbol":"Cd","Name":"Cadmium","Shell":["2","8","18","18","2"],"MeltingPoint":"594.22 K","BoilingPoint":"1040 K","Density":"8650 kg/m^3"},{"ElementNumber":"49","AtomicWeight":"114.818","Symbol":"In","Name":"Indium","Shell":["2","8","18","18","3"],"MeltingPoint":"429.75 K","BoilingPoint":"2345 K","Density":"7310 kg/m^3"},{"ElementNumber":"50","AtomicWeight":"118.710","Symbol":"Sn","Name":"Tin","Shell":["2","8","18","18","4"],"MeltingPoint":"505.08 K","BoilingPoint":"2875 K","Density":"7310 kg/m^3"},{"ElementNumber":"51","AtomicWeight":"121.760","Symbol":"Sb","Name":"Antimony","Shell":["2","8","18","18","5"],"MeltingPoint":"903.78 K","BoilingPoint":"1860 K","Density":"6697 kg/m^3"},{"ElementNumber":"52","AtomicWeight":"127.60","Symbol":"Te","Name":"Tellurium","Shell":["2","8","18","18","6"],"MeltingPoint":"722.66 K","BoilingPoint":"1261 K","Density":"6240 kg/m^3"},{"ElementNumber":"53","AtomicWeight":"126.90447","Symbol":"I","Name":"Iodine","Shell":["2","8","18","18","7"],"MeltingPoint":"386.85 K","BoilingPoint":"457.4 K","Density":"4940 kg/m^3"},{"ElementNumber":"54","AtomicWeight":"131.293","Symbol":"Xe","Name":"Xenon","Shell":["2","8","18","18","8"],"MeltingPoint":"161.3 K","BoilingPoint":"165.1 K","Density":"5.9 kg/m^3"},{"ElementNumber":"55","AtomicWeight":"132.9054519","Symbol":"Cs","Name":"Caesium","Shell":["2","8","18","18","8","1"],"MeltingPoint":"301.59 K","BoilingPoint":"944 K","Density":"1879 kg/m^3"},{"ElementNumber":"56","AtomicWeight":"137.327","Symbol":"Ba","Name":"Barium","Shell":["2","8","18","18","8","2"],"MeltingPoint":"1000 K","BoilingPoint":"2143 K","Density":"3510 kg/m^3"},{"ElementNumber":"57","AtomicWeight":"138.90547","Symbol":"La","Name":"Lanthanum","Shell":["2","8","18","18","9","2"],"MeltingPoint":"1193 K","BoilingPoint":"3737 K","Density":"6146 kg/m^3"},{"ElementNumber":"58","AtomicWeight":"140.116","Symbol":"Ce","Name":"Cerium","Shell":["2","8","18","19","9","2"],"MeltingPoint":"1071 K","BoilingPoint":"3633 K","Density":"6689 kg/m^3"},{"ElementNumber":"59","AtomicWeight":"140.90765","Symbol":"Pr","Name":"Praseodymium","Shell":["2","8","18","21","8","2"],"MeltingPoint":"1204 K","BoilingPoint":"3563 K","Density":"6640 kg/m^3"},{"ElementNumber":"60","AtomicWeight":"144.242","Symbol":"Nd","Name":"Neodymium","Shell":["2","8","18","22","8","2"],"MeltingPoint":"1294 K","BoilingPoint":"3373 K","Density":"7010 kg/m^3"},{"ElementNumber":"61","AtomicWeight":"145","Symbol":"Pm","Name":"Promethium","Shell":["2","8","18","23","8","2"],"MeltingPoint":"3273 K","BoilingPoint":"3273 K","Density":"7264 kg/m^3"},{"ElementNumber":"62","AtomicWeight":"150.36","Symbol":"Sm","Name":"Samarium","Shell":["2","8","18","24","8","2"],"MeltingPoint":"1345 K","BoilingPoint":"2076 K","Density":"7353 kg/m^3"},{"ElementNumber":"63","AtomicWeight":"151.964","Symbol":"Eu","Name":"Europium","Shell":["2","8","18","25","8","2"],"MeltingPoint":"1095 K","BoilingPoint":"1800 K","Density":"5244 kg/m^3"},{"ElementNumber":"64","AtomicWeight":"157.25","Symbol":"Gd","Name":"Gadolinium","Shell":["2","8","18","25","9","2"],"MeltingPoint":"1586 K","BoilingPoint":"3523 K","Density":"7901 kg/m^3"},{"ElementNumber":"65","AtomicWeight":"158.92535","Symbol":"Tb","Name":"Terbium","Shell":["2","8","18","27","8","2"],"MeltingPoint":"1629 K","BoilingPoint":"3503 K","Density":"8219 kg"},{"ElementNumber":"66","AtomicWeight":"162.5","Symbol":"Dy","Name":"Dysprosium","Shell":["2","8","18","28","8","2"],"MeltingPoint":"1685 K","BoilingPoint":"2840 K","Density":"8551 kg"},{"ElementNumber":"67","AtomicWeight":"164.93032","Symbol":"Ho","Name":"Holmium","Shell":["2","8","18","29","8","2"],"MeltingPoint":"1747 K","BoilingPoint":"2973 K","Density":"8795 kg"},{"ElementNumber":"68","AtomicWeight":"167.259","Symbol":"Er","Name":"Erbium","Shell":["2","8","18","30","8","2"],"MeltingPoint":"1770 K","BoilingPoint":"3141 K","Density":"9066 kg"},{"ElementNumber":"69","AtomicWeight":"168.93421","Symbol":"Tm","Name":"Thulium","Shell":["2","8","18","31","8","2"],"MeltingPoint":"1818 K","BoilingPoint":"2223 K","Density":"9321 kg"},{"ElementNumber":"70","AtomicWeight":"173.054","Symbol":"Yb","Name":"Ytterbium","Shell":["2","8","18","32","8","2"],"MeltingPoint":"1092 K","BoilingPoint":"1469 K","Density":"6570 kg"},{"ElementNumber":"71","AtomicWeight":"174.9668","Symbol":"Lu","Name":"Lutetium","Shell":["2","8","18","32","9","2"],"MeltingPoint":"1936 K","BoilingPoint":"3675 K","Density":"9841 kg"},{"ElementNumber":"72","AtomicWeight":"178.49","Symbol":"Hf","Name":"Hafnium","Shell":["2","8","18","32","10","2"],"MeltingPoint":"2506 K","BoilingPoint":"4876 K","Density":"13310 kg"},{"ElementNumber":"73","AtomicWeight":"180.94788","Symbol":"Ta","Name":"Tantalum","Shell":["2","8","18","32","11","2"],"MeltingPoint":"3290 K","BoilingPoint":"5731 K","Density":"16650 kg"},{"ElementNumber":"74","AtomicWeight":"183.84","Symbol":"W","Name":"Tungsten","Shell":["2","8","18","32","12","2"],"MeltingPoint":"3695 K","BoilingPoint":"5828 K","Density":"19250 kg"},{"ElementNumber":"75","AtomicWeight":"186.207","Symbol":"Re","Name":"Rhenium","Shell":["2","8","18","32","13","2"],"MeltingPoint":"3459 K","BoilingPoint":"5869 K","Density":"21020 kg"},{"ElementNumber":"76","AtomicWeight":"190.23","Symbol":"Os","Name":"Osmium","Shell":["2","8","18","32","14","2"],"MeltingPoint":"3306 K","BoilingPoint":"5285 K","Density":"22610 kg"},{"ElementNumber":"77","AtomicWeight":"192.217","Symbol":"Ir","Name":"Iridium","Shell":["2","8","18","32","15","2"],"MeltingPoint":"2739 K","BoilingPoint":"4701 K","Density":"22650 kg"},{"ElementNumber":"78","AtomicWeight":"195.084","Symbol":"Pt","Name":"Platinum","Shell":["2","8","18","32","17","1"],"MeltingPoint":"2041.4 K","BoilingPoint":"4098 K","Density":"21090 kg"},{"ElementNumber":"79","AtomicWeight":"196.966569","Symbol":"Au","Name":"Gold","Shell":["2","8","18","32","18","1"],"MeltingPoint":"1337.33 K","BoilingPoint":"3129 K","Density":"19300 kg"},{"ElementNumber":"80","AtomicWeight":"200.59","Symbol":"Hg","Name":"Mercury","Shell":["2","8","18","32","18","2"],"MeltingPoint":"234.32 K","BoilingPoint":"3629.88 K","Density":"13534 kg"},{"ElementNumber":"81","AtomicWeight":"204.3833","Symbol":"Tl","Name":"Thallium","Shell":["2","8","18","32","18","3"],"MeltingPoint":"577 K","BoilingPoint":"1746 K","Density":"11850 kg"},{"ElementNumber":"82","AtomicWeight":"207.2","Symbol":"Pb","Name":"Lead","Shell":["2","8","18","32","18","4"],"MeltingPoint":"600.61 K","BoilingPoint":"2022 K","Density":"11340 kg"},{"ElementNumber":"83","AtomicWeight":"208.9804","Symbol":"Bi","Name":"Bismuth","Shell":["2","8","18","32","18","5"],"MeltingPoint":"544.4 K","BoilingPoint":"1837 K","Density":"9780 kg"},{"ElementNumber":"84","AtomicWeight":"209","Symbol":"Po","Name":"Polonium","Shell":["2","8","18","32","18","6"],"MeltingPoint":"527 K","BoilingPoint":"1235 K","Density":"9196 kg"},{"ElementNumber":"85","AtomicWeight":"210","Symbol":"At","Name":"Astatine","Shell":["2","8","18","32","18","7"],"MeltingPoint":"575 K","BoilingPoint":"610 K","Density":"Unknown"},{"ElementNumber":"86","AtomicWeight":"222","Symbol":"Rn","Name":"Radon","Shell":["2","8","18","32","18","8"],"MeltingPoint":"202 K","BoilingPoint":"211.3 K","Density":"9.73 kg"},{"ElementNumber":"87","AtomicWeight":"223","Symbol":"Fr","Name":"Francium","Shell":["2","8","18","32","18","8","1"],"MeltingPoint":"300 K","BoilingPoint":"950 K","Density":"Unknown"},{"ElementNumber":"88","AtomicWeight":"226","Symbol":"Ra","Name":"Radium","Shell":["2","8","18","32","18","8","2"],"MeltingPoint":"973 K","BoilingPoint":"2010 K","Density":"5000 kg"},{"ElementNumber":"89","AtomicWeight":"227","Symbol":"Ac","Name":"Actinium","Shell":["2","8","18","32","18","9","2"],"MeltingPoint":"1323 K","BoilingPoint":"3473 K","Density":"10070 kg"},{"ElementNumber":"90","AtomicWeight":"232.03806","Symbol":"Th","Name":"Thorium","Shell":["2","8","18","32","18","10","2"],"MeltingPoint":"2023 K","BoilingPoint":"5093 K","Density":"11724 kg"},{"ElementNumber":"91","AtomicWeight":"231.03588","Symbol":"Pa","Name":"Protactinium","Shell":["2","8","18","32","20","9","2"],"MeltingPoint":"1845 K","BoilingPoint":"4273 K","Density":"15370 kg"},{"ElementNumber":"92","AtomicWeight":"238.02891","Symbol":"U","Name":"Uranium","Shell":["2","8","18","32","21","9","2"],"MeltingPoint":"1408 K","BoilingPoint":"4200 K","Density":"19050 kg"},{"ElementNumber":"93","AtomicWeight":"237","Symbol":"Np","Name":"Neptunium","Shell":["2","8","18","32","22","9","2"],"MeltingPoint":"917 K","BoilingPoint":"4273 K","Density":"20450 kg"},{"ElementNumber":"94","AtomicWeight":"244","Symbol":"Pu","Name":"Plutonium","Shell":["2","8","18","32","24","8","2"],"MeltingPoint":"913 K","BoilingPoint":"3503 K","Density":"19816 kg"},{"ElementNumber":"95","AtomicWeight":"243","Symbol":"Am","Name":"Americium","Shell":["2","8","18","32","25","8","2"],"MeltingPoint":"1449 K","BoilingPoint":"2284 K","Density":"Unknown"},{"ElementNumber":"96","AtomicWeight":"247","Symbol":"Cm","Name":"Curium","Shell":["2","8","18","32","25","9","2"],"MeltingPoint":"1618 K","BoilingPoint":"3383 K","Density":"13510 kg"},{"ElementNumber":"97","AtomicWeight":"247","Symbol":"Bk","Name":"Berkelium","Shell":["2","8","18","32","27","8","2"],"MeltingPoint":"1323 K","BoilingPoint":"Unknown","Density":"14780 kg"},{"ElementNumber":"98","AtomicWeight":"251","Symbol":"Cf","Name":"Californium","Shell":["2","8","18","32","28","8","2"],"MeltingPoint":"1173 K","BoilingPoint":"Unknown","Density":"15100 kg"},{"ElementNumber":"99","AtomicWeight":"252","Symbol":"Es","Name":"Einsteinium","Shell":["2","8","18","32","29","8","2"],"MeltingPoint":"1133 K","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"100","AtomicWeight":"257","Symbol":"Fm","Name":"Fermium","Shell":["2","8","18","32","30","8","2"],"MeltingPoint":"1800 K","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"101","AtomicWeight":"258","Symbol":"Md","Name":"Mendelevium","Shell":["2","8","18","32","31","8","2"],"MeltingPoint":"1100 K","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"102","AtomicWeight":"259","Symbol":"No","Name":"Nobelium","Shell":["2","8","18","32","32","8","2"],"MeltingPoint":"1100 K","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"103","AtomicWeight":"252","Symbol":"Lr","Name":"Lawrencium","Shell":["2","8","18","32","32","8","3"],"MeltingPoint":"1900 K","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"104","AtomicWeight":"267","Symbol":"Rf","Name":"Rutherfordium","Shell":["2","8","18","32","32","10","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"105","AtomicWeight":"268","Symbol":"Db","Name":"Dubnium","Shell":["2","8","18","32","32","11","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"106","AtomicWeight":"271","Symbol":"Sg","Name":"Seaborgium","Shell":["2","8","18","32","32","12","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"107","AtomicWeight":"272","Symbol":"Bh","Name":"Bohrium","Shell":["2","8","18","32","32","13","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"108","AtomicWeight":"272","Symbol":"Hs","Name":"Hassium","Shell":["2","8","18","32","32","14","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"109","AtomicWeight":"276","Symbol":"Mt","Name":"Meitnerium","Shell":["2","8","18","32","32","15","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"110","AtomicWeight":"281","Symbol":"Ds","Name":"Darmstadtium","Shell":["2","8","18","32","32","17","1"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"111","AtomicWeight":"280","Symbol":"Rg","Name":"Roentgenium","Shell":["2","8","18","32","32","18","1"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"112","AtomicWeight":"285","Symbol":"Cn","Name":"Copernicium","Shell":["2","8","18","32","32","18","2"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"113","AtomicWeight":"284","Symbol":"Uut","Name":"Ununtrium","Shell":["2","8","18","32","32","18","3"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"114","AtomicWeight":"289","Symbol":"Fl","Name":"Flerovium","Shell":["2","8","18","32","32","18","4"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"115","AtomicWeight":"288","Symbol":"Uup","Name":"Ununpentium","Shell":["2","8","18","32","32","18","5"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"116","AtomicWeight":"293","Symbol":"Lv","Name":"Livermorium","Shell":["2","8","18","32","32","18","6"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"117","AtomicWeight":"294","Symbol":"Uus","Name":"Ununseptium","Shell":["2","8","18","32","32","18","7"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"},{"ElementNumber":"118","AtomicWeight":"Unkown","Symbol":"Uuo","Name":"Ununoctium","Shell":["2","8","18","32","32","18","8"],"MeltingPoint":"Unknown","BoilingPoint":"Unknown","Density":"Unknown"}]}');
+      var table = obj.periodicTable; 
+    </script>
+    <script type="text/javascript">
+      function makeElement(index) {
+        index = index - 1;
+        var el = table[index];
+        var html = '<div id="'+el.Name+'"><div class="left_col"><div class="number">'+el.ElementNumber+'</div><div class="acronym">'+el.Symbol+'</div></div><div class="right_col"><div class="shell">';
+        var ul = '<ul>';
+        for (var i = 0; i < el.Shell.length; i++) {
+          ul += '<li>'+el.Shell[i]+'</li>'
+        };
+        ul += '</ul>';
+        html += ul + '</div></div></div>';
+        $('#'+el.Name).replaceWith(html);
+
+        $('#'+el.Name).click(function() {
+          $('#info_number').html(el.ElementNumber);
+          $('#info_symbol').html(el.Symbol);
+          $('#info_name').html(el.Name);
+          $('#info_weight').html(el.AtomicWeight);
+          $('#info_meltingpoint').html('Melting Point<br />'+el.MeltingPoint);
+          $('#info_boilingpoint').html('Boiling Point<br />'+el.BoilingPoint);
+          $('#info_density').html('Density<br />'+el.Density);
+          $('#info_shell li').each(function(index) {
+            $(this).html('');
+            if(index < el.Shell.length) {
+              $(this).html(el.Shell[index]);
+            }
+          });
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="main_content" class="clearfix">
+      <div id="info_box" class="shadow_down">
+        <div id="info_left">
+          <div id="info_number">1</div>
+          <div id="info_symbol">H</div>
+          <div id="info_name">Hydrogen</div>
+          <div id="info_weight">1.00794</div>
+        </div>
+        <div id="info_center">
+          <div id="info_shell">
+            <ul>
+              <li>1</li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        <div id="info_right">
+          <div id="info_meltingpoint">Melting Point<br />14.01 K</div>
+          <div id="info_boilingpoint">Boiling Point<br />20.28 K</div>
+          <div id="info_density">Density<br />0.0899 kg/m^3</div>
+        </div>
+      </div>
+      <table id="periodic_table">
+        <tbody>
+          <tr>
+            <td class="element nonmetal"><div id="Hydrogen"><script type="text/javascript">makeElement(1);</script></div></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class="element nobel_gas"><div id="Helium"><script type="text/javascript">makeElement(2);</script></div></td>
+          </tr>
+          <tr>
+            <td class="element alkali_metal"><div id="Lithium"><script type="text/javascript">makeElement(3);</script></div></td>
+            <td class="element alkali_earth"><div id="Beryllium"><script type="text/javascript">makeElement(4);</script></div></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class="element metaloids"><div id="Boron"><script type="text/javascript">makeElement(5);</script></div></td>
+            <td class="element nonmetal"><div id="Carbon"><script type="text/javascript">makeElement(6);</script></div></td>
+            <td class="element nonmetal"><div id="Nitrogen"><script type="text/javascript">makeElement(7);</script></div></td>
+            <td class="element nonmetal"><div id="Oxygen"><script type="text/javascript">makeElement(8);</script></div></td>
+            <td class="element halogen"><div id="Fluorine"><script type="text/javascript">makeElement(9);</script></div></td>
+            <td class="element nobel_gas"><div id="Neon"><script type="text/javascript">makeElement(10);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class="element alkali_metal"><div id="Sodium"><script type="text/javascript">makeElement(11);</script></div></td>
+            <td class="element alkali_earth"><div id="Magnesium"><script type="text/javascript">makeElement(12);</script></div></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class="element post_trans_metal"><div id="Aluminium"><script type="text/javascript">makeElement(13);</script></div></td>
+            <td class="element metaloids"><div id="Silicon"><script type="text/javascript">makeElement(14);</script></div></td>
+            <td class="element nonmetal"><div id="Phosphorus"><script type="text/javascript">makeElement(15);</script></div></td>
+            <td class="element nonmetal"><div id="Sulfur"><script type="text/javascript">makeElement(16);</script></div></td>
+            <td class="element halogen"><div id="Chlorine"><script type="text/javascript">makeElement(17);</script></div></td>
+            <td class="element nobel_gas"><div id="Argon"><script type="text/javascript">makeElement(18);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class="element alkali_metal"><div id="Potassium"><script type="text/javascript">makeElement(19);</script></div></td>
+            <td class="element alkali_earth"><div id="Calcium"><script type="text/javascript">makeElement(20);</script></div></td>
+            <td class="element trans_metal"><div id="Scandium"><script type="text/javascript">makeElement(21);</script></div></td>
+            <td class="element trans_metal"><div id="Titanium"><script type="text/javascript">makeElement(22);</script></div></td>
+            <td class="element trans_metal"><div id="Vanadium"><script type="text/javascript">makeElement(23);</script></div></td>
+            <td class="element trans_metal"><div id="Chromium"><script type="text/javascript">makeElement(24);</script></div></td>
+            <td class="element trans_metal"><div id="Manganese"><script type="text/javascript">makeElement(25);</script></div></td>
+            <td class="element trans_metal"><div id="Iron"><script type="text/javascript">makeElement(26);</script></div></td>
+            <td class="element trans_metal"><div id="Cobalt"><script type="text/javascript">makeElement(27);</script></div></td>
+            <td class="element trans_metal"><div id="Nickel"><script type="text/javascript">makeElement(28);</script></div></td>
+            <td class="element trans_metal"><div id="Copper"><script type="text/javascript">makeElement(29);</script></div></td>
+            <td class="element trans_metal"><div id="Zinc"><script type="text/javascript">makeElement(30);</script></div></td>
+            <td class="element post_trans_metal"><div id="Gallium"><script type="text/javascript">makeElement(31);</script></div></td>
+            <td class="element metaloids"><div id="Germanium"><script type="text/javascript">makeElement(32);</script></div></td>
+            <td class="element metaloids"><div id="Arsenic"><script type="text/javascript">makeElement(33);</script></div></td>
+            <td class="element nonmetal"><div id="Selenium"><script type="text/javascript">makeElement(34);</script></div></td>
+            <td class="element halogen"><div id="Bromine"><script type="text/javascript">makeElement(35);</script></div></td>
+            <td class="element nobel_gas"><div id="Krypton"><script type="text/javascript">makeElement(36);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class="element alkali_metal"><div id="Rubidium"><script type="text/javascript">makeElement(37);</script></div></td>
+            <td class="element alkali_earth"><div id="Strontium"><script type="text/javascript">makeElement(38);</script></div></td>
+            <td class="element trans_metal"><div id="Yttrium"><script type="text/javascript">makeElement(39);</script></div></td>
+            <td class="element trans_metal"><div id="Zirconium"><script type="text/javascript">makeElement(40);</script></div></td>
+            <td class="element trans_metal"><div id="Niobium"><script type="text/javascript">makeElement(41);</script></div></td>
+            <td class="element trans_metal"><div id="Molybdenum"><script type="text/javascript">makeElement(42);</script></div></td>
+            <td class="element trans_metal"><div id="Technetium"><script type="text/javascript">makeElement(43);</script></div></td>
+            <td class="element trans_metal"><div id="Ruthenium"><script type="text/javascript">makeElement(44);</script></div></td>
+            <td class="element trans_metal"><div id="Rhodium"><script type="text/javascript">makeElement(45);</script></div></td>
+            <td class="element trans_metal"><div id="Palladium"><script type="text/javascript">makeElement(46);</script></div></td>
+            <td class="element trans_metal"><div id="Silver"><script type="text/javascript">makeElement(47);</script></div></td>
+            <td class="element trans_metal"><div id="Cadmium"><script type="text/javascript">makeElement(48);</script></div></td>
+            <td class="element post_trans_metal"><div id="Indium"><script type="text/javascript">makeElement(49);</script></div></td>
+            <td class="element post_trans_metal"><div id="Tin"><script type="text/javascript">makeElement(50);</script></div></td>
+            <td class="element metaloids"><div id="Antimony"><script type="text/javascript">makeElement(51);</script></div></td>
+            <td class="element metaloids"><div id="Tellurium"><script type="text/javascript">makeElement(52);</script></div></td>
+            <td class="element halogen"><div id="Iodine"><script type="text/javascript">makeElement(53);</script></div></td>
+            <td class="element nobel_gas"><div id="Xenon"><script type="text/javascript">makeElement(54);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class="element alkali_metal"><div id="Caesium"><script type="text/javascript">makeElement(55);</script></div></td>
+            <td class="element alkali_earth"><div id="Barium"><script type="text/javascript">makeElement(56);</script></div></td>
+            <td class=""></td>
+            <td class="element trans_metal"><div id="Hafnium"><script type="text/javascript">makeElement(72);</script></div></td>
+            <td class="element trans_metal"><div id="Tantalum"><script type="text/javascript">makeElement(73);</script></div></td>
+            <td class="element trans_metal"><div id="Tungsten"><script type="text/javascript">makeElement(74);</script></div></td>
+            <td class="element trans_metal"><div id="Rhenium"><script type="text/javascript">makeElement(75);</script></div></td>
+            <td class="element trans_metal"><div id="Osmium"><script type="text/javascript">makeElement(76);</script></div></td>
+            <td class="element trans_metal"><div id="Iridium"><script type="text/javascript">makeElement(77);</script></div></td>
+            <td class="element trans_metal"><div id="Platinum"><script type="text/javascript">makeElement(78);</script></div></td>
+            <td class="element trans_metal"><div id="Gold"><script type="text/javascript">makeElement(79);</script></div></td>
+            <td class="element trans_metal"><div id="Mercury"><script type="text/javascript">makeElement(80);</script></div></td>
+            <td class="element post_trans_metal"><div id="Thallium"><script type="text/javascript">makeElement(81);</script></div></td>
+            <td class="element post_trans_metal"><div id="Lead"><script type="text/javascript">makeElement(82);</script></div></td>
+            <td class="element post_trans_metal"><div id="Bismuth"><script type="text/javascript">makeElement(83);</script></div></td>
+            <td class="element metaloids"><div id="Polonium"><script type="text/javascript">makeElement(84);</script></div></td>
+            <td class="element halogen"><div id="Astatine"><script type="text/javascript">makeElement(85);</script></div></td>
+            <td class="element nobel_gas"><div id="Radon"><script type="text/javascript">makeElement(86);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class="element alkali_metal"><div id="Francium"><script type="text/javascript">makeElement(87);</script></div></td>
+            <td class="element alkali_earth"><div id="Radium"><script type="text/javascript">makeElement(88);</script></div></td>
+            <td class=""></td>
+            <td class="element trans_metal"><div id="Rutherfordium"><script type="text/javascript">makeElement(104);</script></div></td>
+            <td class="element trans_metal"><div id="Dubnium"><script type="text/javascript">makeElement(105);</script></div></td>
+            <td class="element trans_metal"><div id="Seaborgium"><script type="text/javascript">makeElement(106);</script></div></td>
+            <td class="element trans_metal"><div id="Bohrium"><script type="text/javascript">makeElement(107);</script></div></td>
+            <td class="element trans_metal"><div id="Hassium"><script type="text/javascript">makeElement(108);</script></div></td>
+            <td class="element trans_metal"><div id="Meitnerium"><script type="text/javascript">makeElement(109);</script></div></td>
+            <td class="element trans_metal"><div id="Darmstadtium"><script type="text/javascript">makeElement(110);</script></div></td>
+            <td class="element trans_metal"><div id="Roentgenium"><script type="text/javascript">makeElement(111);</script></div></td>
+            <td class="element trans_metal"><div id="Copernicium"><script type="text/javascript">makeElement(112);</script></div></td>
+            <td class="element post_trans_metal"><div id="Ununtrium"><script type="text/javascript">makeElement(113);</script></div></td>
+            <td class="element post_trans_metal"><div id="Flerovium"><script type="text/javascript">makeElement(114);</script></div></td>
+            <td class="element post_trans_metal"><div id="Ununpentium"><script type="text/javascript">makeElement(115);</script></div></td>
+            <td class="element post_trans_metal"><div id="Livermorium"><script type="text/javascript">makeElement(116);</script></div></td>
+            <td class="element halogen"><div id="Ununseptium"><script type="text/javascript">makeElement(117);</script></div></td>
+            <td class="element nobel_gas"><div id="Ununoctium"><script type="text/javascript">makeElement(118);</script></div></td>
+          </tr>
+          
+          <tr>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+          </tr>
+
+          <tr>
+            <td class=""></td>
+            <td class="extra_label"></td>
+            <td class=""></td>
+            <td class="element lanthanoid"><div id="Lanthanum"><script type="text/javascript">makeElement(57);</script></div></td>
+            <td class="element lanthanoid"><div id="Cerium"><script type="text/javascript">makeElement(58);</script></div></td>
+            <td class="element lanthanoid"><div id="Praseodymium"><script type="text/javascript">makeElement(59);</script></div></td>
+            <td class="element lanthanoid"><div id="Neodymium"><script type="text/javascript">makeElement(60);</script></div></td>
+            <td class="element lanthanoid"><div id="Promethium"><script type="text/javascript">makeElement(61);</script></div></td>
+            <td class="element lanthanoid"><div id="Samarium"><script type="text/javascript">makeElement(62);</script></div></td>
+            <td class="element lanthanoid"><div id="Europium"><script type="text/javascript">makeElement(63);</script></div></td>
+            <td class="element lanthanoid"><div id="Gadolinium"><script type="text/javascript">makeElement(64);</script></div></td>
+            <td class="element lanthanoid"><div id="Terbium"><script type="text/javascript">makeElement(65);</script></div></td>
+            <td class="element lanthanoid"><div id="Dysprosium"><script type="text/javascript">makeElement(66);</script></div></td>
+            <td class="element lanthanoid"><div id="Holmium"><script type="text/javascript">makeElement(67);</script></div></td>
+            <td class="element lanthanoid"><div id="Erbium"><script type="text/javascript">makeElement(68);</script></div></td>
+            <td class="element lanthanoid"><div id="Thulium"><script type="text/javascript">makeElement(69);</script></div></td>
+            <td class="element lanthanoid"><div id="Ytterbium"><script type="text/javascript">makeElement(70);</script></div></td>
+            <td class="element lanthanoid"><div id="Lutetium"><script type="text/javascript">makeElement(71);</script></div></td>
+          </tr>
+
+          <tr>
+            <td class=""></td>
+            <td class="extra_label"></td>
+            <td class=""></td>
+            <td class="element actinoid"><div id="Actinium"><script type="text/javascript">makeElement(89);</script></div></td>
+            <td class="element actinoid"><div id="Thorium"><script type="text/javascript">makeElement(90);</script></div></td>
+            <td class="element actinoid"><div id="Protactinium"><script type="text/javascript">makeElement(91);</script></div></td>
+            <td class="element actinoid"><div id="Uranium"><script type="text/javascript">makeElement(92);</script></div></td>
+            <td class="element actinoid"><div id="Neptunium"><script type="text/javascript">makeElement(93);</script></div></td>
+            <td class="element actinoid"><div id="Plutonium"><script type="text/javascript">makeElement(94);</script></div></td>
+            <td class="element actinoid"><div id="Americium"><script type="text/javascript">makeElement(95);</script></div></td>
+            <td class="element actinoid"><div id="Curium"><script type="text/javascript">makeElement(96);</script></div></td>
+            <td class="element actinoid"><div id="Berkelium"><script type="text/javascript">makeElement(97);</script></div></td>
+            <td class="element actinoid"><div id="Californium"><script type="text/javascript">makeElement(98);</script></div></td>
+            <td class="element actinoid"><div id="Einsteinium"><script type="text/javascript">makeElement(99);</script></div></td>
+            <td class="element actinoid"><div id="Fermium"><script type="text/javascript">makeElement(100);</script></div></td>
+            <td class="element actinoid"><div id="Mendelevium"><script type="text/javascript">makeElement(101);</script></div></td>
+            <td class="element actinoid"><div id="Nobelium"><script type="text/javascript">makeElement(102);</script></div></td>
+            <td class="element actinoid"><div id="Lawrencium"><script type="text/javascript">makeElement(103);</script></div></td>
+          </tr>
+          <tr>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+            <td class=""></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="legend_table">
+        <tbody>
+          <tr>
+            <td class="alkali_metal"></td>
+            <td class="extra_label">Alkali<br />Metals</td>
+            <td class=""></td>
+            <td class="alkali_earth"></td>
+            <td class="extra_label">Alkaline<br />Metals</td>
+            <td class=""></td>
+            <td class="trans_metal"></td>
+            <td class="extra_label">Transition<br />Metals</td>
+            <td class=""></td>
+            <td class="metaloids"></td>
+            <td class="extra_label">Metalloids</td>
+            <td class=""></td>
+            <td class="halogen"></td>
+            <td class="extra_label">Halogens</td>
+          </tr>
+          <tr>
+            <td class="nobel_gas"></td>
+            <td class="extra_label">Nobel Gases</td>
+            <td class=""></td>
+            <td class="lanthanoid"></td>
+            <td class="extra_label">Lanthanoids</td>
+            <td class=""></td>
+            <td class="actinoid"></td>
+            <td class="extra_label">Actinoid</td>
+            <td class=""></td>
+            <td class="post_trans_metal"></td>
+            <td class="extra_label">Post-Transition<br />Metals</td>
+            <td class=""></td>
+            <td class="nonmetal"></td>
+            <td class="extra_label">Non-Metals</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="lanthanoid_label" class="extra_label">Lanthanoids</div>
+    <div id="actinoids_label" class="extra_label">Actinoids</div>
+  </body>
+</html>

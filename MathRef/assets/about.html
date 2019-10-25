@@ -1,0 +1,226 @@
+<html>
+<meta name="viewport" content="width=device-width; initial-scale=0.8; maximum-scale=1.0; user-scalable=1;"/>
+<head>
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+                -webkit-text-size-adjust:none;
+        }
+
+        html
+        {
+            min-height: 100%;
+            height: 100%;
+            background-color:#F7F7F7;
+        }
+
+        body {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+            font-weight: 300;
+        }
+
+        html, body, h1, h2, h3, h4, h5, h6 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #main-content {
+            margin: 10px auto;
+            width: 600px;
+            overflow: hidden;
+            background-color: #FEFEFE;
+        }
+
+        .circle {
+            border-radius: 64px;
+            -webkit-border-radius: 64px;
+            -moz-border-radius: 64px;
+            overflow: hidden;;
+        }
+
+        .col {
+            float:left;
+            padding: 1%;
+            margin: 1%;
+            width: 90%;
+        }
+
+        .shadow-box {
+            -moz-box-shadow:    0px 4px 3px 0px #111;
+            -webkit-box-shadow: 0px 4px 3px 0px #111;
+            box-shadow:         0px 4px 3px 0px #111;
+        }
+
+        #header {
+            width:50%;
+            clear:both;
+            margin:0px auto;
+            text-align: center;
+            color:#000;
+        }
+
+        #social-buttons {
+            margin: 10px 5px;
+            text-align: center;
+        }
+
+        #social-buttons img {
+            width: 42px;
+            height: 42px;
+        }
+
+        /*
+        ul.checkmark li:before {
+            content:"\2713\0020";
+
+        }
+        */
+        body:nth-of-type(1) ul.checkmark li
+        {
+            list-style-type:none;
+            padding: 0 0 0 0px;
+            position:relative;
+        }
+
+        body:nth-of-type(1) ul li:after 
+        {
+            /*Add another block-level blank space*/
+            content:"\00a0";
+            display:block;
+             
+            /*Make it a small rectangle so the border will create an L-shape*/
+            width: 3px;
+            height: 6px;
+             
+            /*Add a white border on the bottom and left, creating that 'L' */
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+             
+            /*Position it on top of the circle*/
+            position:absolute;
+            left: -16px;
+            top: 40%;
+            margin-top: -4px;
+             
+            /*Rotate the L 45 degrees to turn it into a checkmark*/
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+        }
+
+        @media only screen 
+        and (min-width : 160px) 
+        and (max-width : 599px) {
+            
+            #main-content {
+                margin: 0px auto;
+                width:100%;
+            }
+            .col {
+                clear: both;
+                width: 100%;
+            }
+            #header {
+                width: 100%;
+            }
+        }
+
+        #dev-pictures {
+            width: 168px;
+            height: 64px;
+            margin: 0px auto;
+        }
+
+        .dev-pictures:first-child {
+            padding-right: 10px;
+        }
+        .dev-picture:last-child {
+            float: right;
+        }
+
+        .dev-picture {
+            width: 64px;
+            height: 64px;
+            float: left;
+            background-color: #333;
+            margin: 0px auto;
+        }
+
+        .dev-picture img {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content" class="shadow-box">
+        <div id="header">
+            <h1>Math Ref 2.6</h1>
+        </div>
+        <div class="col">
+            <h3>What's new</h3>
+            <ul>
+                <li>Brand new unit converter!</li>
+                <li>Unit converter can be a Widget!</li>
+                <li>Renames 'Thermochemistry' to 'Chemical Thermodynamics'</li>
+                <li>Grammar and spelling mistakes</li>
+                <li>Fixes First Order - Homogeneous equation error</li>
+                <li>Fixes error in Geometric series</li>
+                <li>Fixes error in Radicals - Even/Odd</li>
+                <li>Fixes error in Taylor Series example</li>
+                <li>Fixes missing 'z' in Clairaut's theorem</li>
+                <li>Updated UI</li>
+            </ul>
+            <h3>Users requests</h3>
+            <ul>
+                <li>Hyperbolic trigonometric functions and identities</li>
+                <li>Added impulse to physics</li>
+                <li>Revised definitions for some formulas</li>
+                <li>Added notation</li>
+                <li>Added more area of triangle formulas</li>
+            </ul>
+            <h3>Major bug fixing</h3>
+            <ul class="checkmark">
+                <li>Cubic inches / Cubic feet incorrect in Unit Converter</li>
+                <li>Spherical Divergence incorrect</li>
+                <li>Unit circle table errors fixed</li>
+            </ul>
+            <p>
+                This version would not be possible without a small group of passionate users who provided great feedback.
+            </p>
+            <p>
+                Over 1400 equations, formulas, and examples. If it's not here, let us know and we'll try and get it into a future version.
+            </p>
+
+            <div id="hm-about-text">
+                <p>
+                    We're two people who love to write code and create content. Whether it's apps, websites, or games, we have a passion for our products. 
+                </p>
+                <div id="dev-pictures">
+                    <div class="dev-picture circle">
+                        <a href="https://twitter.com/jas0978"><img src="jodi.png" class="circle"></img></a>
+                    </div>
+                    <div class="dev-picture circle">
+                        <a href="https://twitter.com/skribbles"><img src="chris.png" class="circle"></img></a>
+                    </div>
+                </div>
+                <div id="social-buttons">
+                    <p>Follow us and join in the conversation at any one of these services</p>
+                    <a href="http://www.facebook.com/HappyMaauStudios"><img src="social_facebook.png" width="42px" height="42px" class="social-left"></img></a>
+                    <a href="http://www.twitter.com/happymaau"><img src="social_twitter.png" width="42px" height="42px" class="social-left"></img></a>
+                    <a href="http://www.friendfeed.com/happymaau"><img src="social_friendfeed.png" width="42px" height="42px" class="social-center"></img></a>
+                    <a href="https://plus.google.com/103884757911024696312"><img src="social_google.png" width="42px" height="42px" class="social-right"></img></a>
+                    <a href="mailto:info@happymaau.com?Subject=Math%20Ref%20Comment" target="_blank"><img src="social_email.png" width="42px" height="42px" class="social-right"></img></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

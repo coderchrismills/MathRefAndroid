@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/equation_container_view"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/equation_view"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="8dp"
+                  android:orientation="vertical">
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="0dp"
+                android:text="@string/eq_title"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        <com.happymaau.MathRefFree.TouchImageView
+            	 android:id="@+id/equation_image"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:adjustViewBounds="true"
+                 android:scaleType="fitStart"
+                 android:layout_marginRight="5dp"
+                 android:layout_marginBottom="5dp"
+                 android:contentDescription="@string/eq_title"
+                 android:gravity="top"/>
+
+        <View android:background="@drawable/borderline"
+              android:layout_width="fill_parent"
+              android:layout_height="1dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/notes_view"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="8dp"
+                  android:orientation="vertical" >
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="#000000"
+                  android:dividerHeight="0dp"
+                  android:textSize="22sp"
+                  android:textStyle="bold"
+                  android:text="@string/eq_about"/>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/about_container_view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="top"
+                        android:orientation="vertical">
+            <WebView
+                    android:id="@+id/notes_fields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:textSize="22sp" android:minHeight="10dp"/>
+
+        </RelativeLayout>
+
+        <View android:background="@drawable/borderline"
+              android:layout_width="fill_parent"
+              android:layout_height="1dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/example_view"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="8dp"
+                  android:orientation="vertical" >
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="0dp"
+                android:text="@string/eq_example"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        <com.happymaau.MathRefFree.TouchImageView
+                android:id="@+id/example_image"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/eq_example"
+                android:gravity="bottom"
+                android:scaleType="fitStart" />
+
+        <View android:background="@drawable/borderline"
+              android:layout_width="fill_parent"
+              android:layout_height="1dp"/>
+
+    </LinearLayout>
+</LinearLayout>

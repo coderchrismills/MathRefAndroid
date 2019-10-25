@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>unit</title>
+<style>
+input, textarea, select { -webkit-appearance: none; border-radius: 0; -webkit-border-radius:0; }
+* { -webkit-tap-highlight-color:transparent; }
+div, a, section, article, span, img, h1, h2, h3, h4, h5 ,h6 { -webkit-user-select:none; -moz-user-select:none; }
+::-webkit-scrollbar { 
+    display: none; 
+}
+body 
+{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	font-size: 21px;
+	color: rgb(51,51,51);
+}
+.rounded 
+{
+	border-radius:4px;
+}
+
+#content 
+{
+	width: 390px;
+	height: 180px;
+	background-color: rgba(242,242,242,0.5);
+	margin: 0 auto;
+	margin-top : 8px;
+	margin-left: 4px;
+	display:inline-block;
+}
+#input-content 
+{
+	height: 108px;
+	width: 100%;
+}
+#left-column
+{
+	width: 314px;
+	height: 100px;
+	float: left;
+	margin: 8px 8px 8px 8px;
+}
+.converter-input-group
+{
+	width: 314px;
+	height: 46px;
+	margin: 0px;
+	float: left;
+}
+.converter-input-group:last-child
+{
+	margin-top: 8px;
+}
+.converter-input-group-background
+{
+	background-color: rgb(153,153,153);
+	width: 100%;
+	height: 46px;
+}
+.converter-input-group-content 
+{
+	background-color: white;
+	width: 100%;
+	height: 44px;
+}
+#right-column
+{
+	width: 52px;
+	height: 100px;
+	float: right;
+	margin: 8px 4px 8px 0px;
+	padding-left: 2px;
+	border-left: 2px solid rgb(153, 153, 153);
+}
+.input-button
+{
+	width: 44px;
+	height: 46px;
+	float: left;
+	margin: 0px 0px 8px 4px;
+}
+.input-button:last-child
+{
+	margin-bottom: 0px;
+}
+#list-content
+{
+	width: 100%;
+	height: 54px;
+}
+#scroll-list-background
+{
+	background-color: rgb(153,153,153);
+	width:374px;
+	height: 54px;
+	margin: 8px;
+}
+#scroll-list-content
+{
+	background-color: white;
+	width: 374px;
+	height: 52px;
+}
+#scroll-list-container
+{
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+#scroll-list
+{
+	width: 856px;
+	height: 52px;
+}
+.tool-button
+{
+	width : 44px;
+	height: 44px;
+	margin: 4px 8px 4px 0px;
+	padding-right: 8px;
+	float: left;
+	border-right: 1px solid rgb(153, 153, 153);
+}
+.tool-button:first-child
+{
+	margin-left: 8px;
+}
+.tool-button:last-child
+{
+	border:none;
+	padding-right: 0px;
+	margin-left: 0px;
+}
+.tool-button img
+{
+	width: 44px;
+	height: 44px;
+}
+textarea 
+{
+  resize: none;
+}
+input[type=text] 
+{
+	border: none;
+	border-bottom: 1px solid rgb(153, 153, 153);
+	padding: 8px;
+	margin-left: 8px;
+	width: 171px;
+}
+input[type=text]:disabled
+{
+	border-bottom: 1px solid rgb(204, 204, 204);
+	color: rgb(74,170,74);
+	-webkit-text-fill-color: rgb(74,170,74);
+}
+select
+{
+	width: 103px;
+	border: none;
+	border-bottom: 1px solid rgb(153, 153, 153);
+	padding: 8px;
+}
+
+.androidpaintfix 
+{
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0, 0, 0);
+}
+
+</style>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="unit_converter.js"></script>
+
+</head>
+<body>
+	<div id="phone-background">
+	<div id="content" class="rounded">
+		<div id="input-content">
+			<div id="left-column">
+				<div class="converter-input-group">
+					<div class="converter-input-group-background rounded">
+						<div class="converter-input-group-content rounded">
+							<input type="text" name="input_value" id="inputA">
+							<select id="fromUnit">
+								<option value="volvo">Why</option>
+								<option value="saab">Saab</option>
+								<option value="mercedes">Mercedes</option>
+								<option value="audi">Audi</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="converter-input-group">
+					<div class="converter-input-group-background rounded">
+						<div class="converter-input-group-content rounded">
+							<input type="text" name="result" disabled id="inputB">
+							<select id="toUnit">
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="mercedes">Mercedes</option>
+								<option value="audi">Audi</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="right-column">
+				<div class="input-button" id="swapButton">
+					<script type="text/javascript">setupView(1);</script>
+					<img src="images/swap.svg" />
+				</div>
+				<div class="input-button" id="solveButton">
+					<img src="images/solve.svg" />
+				</div>
+			</div>
+		</div>
+		<div id="list-content">
+			<div id="scroll-list-background" class="rounded">
+				<div id="scroll-list-content" class="rounded">
+					<div id="scroll-list-container">
+						<div id="scroll-list">
+							<div class="tool-button"><img src="images/tool_icon0.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon1.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon2.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon3.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon4.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon5.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon6.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon7.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon8.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon9.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon10.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon11.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon12.svg" /></div>
+							<div class="tool-button"><img src="images/tool_icon13.svg" /></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

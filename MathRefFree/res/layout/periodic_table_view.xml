@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/periodic_container_view"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <WebView android:id="@+id/webkit_periodic"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" android:layout_centerInParent="true" android:minHeight="10dp"
+             android:minWidth="10dp"/>
+
+</RelativeLayout>

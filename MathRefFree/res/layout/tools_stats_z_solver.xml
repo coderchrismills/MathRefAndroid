@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/equation_scroll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true">
+            
+            <TextView
+                android:id="@+id/input_zleft_label"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Left: "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/tools_text_color"/>
+
+            <EditText
+                android:id="@+id/input_zleft"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" 
+                android:hint="Z"/>
+
+            <TextView
+                android:id="@+id/input_zright_label"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Right: "
+                android:textColor="@color/tools_text_color"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/input_zright"
+                android:layout_width="55dip"
+                android:layout_height="40dip"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity= "center"
+                android:background="@drawable/thinborder"
+                android:textColor="@color/tools_text_color"
+                android:inputType="number|numberSigned|numberDecimal" 
+                android:hint="Z"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/instruction_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_alignParentLeft="true" android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/input_a_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Calculate Area / Probability"
+                android:textColor="@color/tools_text_color"
+                android:layout_gravity="center_vertical|center_horizontal|center" 
+                android:gravity="center|center_vertical|center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/instruction_layout" android:gravity="center_horizontal">
+
+    	        <Button
+    	            android:id="@+id/left_button"
+    	            android:layout_width="wrap_content"
+    	            android:layout_height="wrap_content"
+    	            android:layout_marginTop="10dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="Left"/>
+    	
+    	        <Button
+    	            android:id="@+id/between_button"
+    	            android:layout_width="wrap_content"
+    	            android:layout_height="wrap_content"
+    	            android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/left_button"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+    	            android:text="Between"/>
+    	
+    	        <Button
+    	            android:id="@+id/right_button"
+    	            android:layout_width="wrap_content"
+    	            android:layout_height="wrap_content"
+    	            android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/between_button"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+    	            android:text="Right"/>
+
+
+        </LinearLayout>
+
+    	<TextView
+    	    android:id="@+id/results_textview"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="125dp"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_below="@+id/button_layout"
+    	    android:layout_marginLeft="26dp"
+    	    android:layout_marginRight="26dp"
+    	    android:layout_marginTop="15dp"
+            android:textColor="@color/tools_text_color"
+    	    android:text=""/>
+            
+        <ImageView 
+            android:id="@+id/z_diagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/results_textview"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/zdistribution"
+            android:contentDescription="@string/z_diagram"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</ScrollView>
